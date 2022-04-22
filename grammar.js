@@ -6,22 +6,35 @@ module.exports = grammar({
     $.comment,
   ],
 
-  supertypes: $ => [
-    $._value
-  ],
+  // supertypes: $ => [
+  //   $._value
+  // ],
 
   rules: {
     document: $ => $._value,
 
-    _value: $ => choice(
-      $.map,
-      $.imap,
-      $.array,
-      $.number,
-      $.string,
-      $.true,
-      $.false,
-      $.null
+    _value: $ => seq(
+      optional($.meta),
+      choice(
+        $.map,
+        $.imap,
+        $.array,
+        $.number,
+        $.string,
+        $.true,
+        $.false,
+        $.null
+      ) 
+    ),
+
+    meta: $ => seq(
+      "<", commaSep($.mpair), ">"
+    ),
+
+    mpair: $ => seq(
+      field("key", choice($.string, $.number)),
+      ":",
+      field("value", $._value)
     ),
 
     map: $ => seq(
@@ -40,12 +53,6 @@ module.exports = grammar({
 
     ipair: $ => seq(
       field("key", $.number),
-      ":",
-      field("value", $._value)
-    ),
-
-    mpair: $ => seq(
-      field("key", choice($.string, $.number)),
       ":",
       field("value", $._value)
     ),
