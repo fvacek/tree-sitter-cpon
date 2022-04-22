@@ -134,5 +134,5 @@ function commaSep1(rule) {
 }
 
 function commaSep(rule) {
-  return optional(commaSep1(rule))
+  return optional(seq(commaSep1(rule),repeat(",")))
 }
