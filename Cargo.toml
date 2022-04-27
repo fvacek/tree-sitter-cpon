@@ -1,10 +1,10 @@
 [package]
-name = "tree-sitter-json"
-description = "json grammar for the tree-sitter parsing library"
+name = "tree-sitter-cpon"
+description = "cpon grammar for the tree-sitter parsing library"
 version = "0.0.1"
-keywords = ["incremental", "parsing", "json"]
+keywords = ["incremental", "parsing", "cpon"]
 categories = ["parsing", "text-editors"]
-repository = "https://github.com/tree-sitter/tree-sitter-json"
+repository = "https://github.com/tree-sitter/tree-sitter-cpon"
 edition = "2018"
 license = "MIT"
 

@@ -1,7 +1,7 @@
 {
-  "name": "tree-sitter-json",
+  "name": "tree-sitter-cpon",
   "version": "0.0.1",
-  "description": "json grammar for tree-sitter",
+  "description": "cpon grammar for tree-sitter",
   "main": "bindings/node",
   "keywords": [
     "parsing",
