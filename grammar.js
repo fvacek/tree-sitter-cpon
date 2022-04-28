@@ -1,6 +1,10 @@
 module.exports = grammar({
   name: 'cpon',
 
+  externals: $ => [
+    $._pair_separator
+  ],  
+  
   extras: $ => [
     /\s/,
     $.comment,
@@ -28,7 +32,7 @@ module.exports = grammar({
     ),
 
     meta: $ => seq(
-      "<", commaSep($.mpair), ">"
+      "<", commaSep($._pair_separator, $.mpair), ">"
     ),
 
     mpair: $ => seq(
@@ -38,7 +42,7 @@ module.exports = grammar({
     ),
 
     map: $ => seq(
-      "{", commaSep($.pair), "}"
+      "{", commaSep($._pair_separator, $.pair), "}"
     ),
 
     pair: $ => seq(
@@ -48,7 +52,7 @@ module.exports = grammar({
     ),
 
     imap: $ => seq(
-      "i{", commaSep($.ipair), "}"
+      "i{", commaSep($._pair_separator, $.ipair), "}"
     ),
 
     ipair: $ => seq(
@@ -129,10 +133,10 @@ module.exports = grammar({
   }
 });
 
-function commaSep1(rule) {
-  return seq(rule, repeat(seq(",", rule)))
+function commaSep1(sep, rule) {
+  return seq(rule, repeat(seq(sep, rule)))
 }
 
-function commaSep(rule) {
-  return optional(seq(commaSep1(rule),repeat(",")))
+function commaSep(sep, rule) {
+  return optional(seq(commaSep1(sep, rule),repeat(",")))
 }
