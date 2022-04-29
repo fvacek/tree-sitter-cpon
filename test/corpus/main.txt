@@ -60,7 +60,7 @@ Arrays
     ))
 
 =================================================================================
-Arrays with superfluous after last element
+Arrays with superfluous ',' after last element
 ================================================================================
 
 [
