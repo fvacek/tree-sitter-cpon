@@ -33,7 +33,7 @@ Arrays
   true,
   false,
   { "stuff": "good" },
-  i{ 1: 2 }
+  i{ 1: 2 },
 ]
 
 --------------------------------------------------------------------------------
@@ -60,11 +60,11 @@ Arrays
     ))
 
 =================================================================================
-Arrays with superfluous ',' after last element
+Array space delimited with superfluous ',' after last element
 ================================================================================
 
 [
-  34,
+  34, 35
   10,
 ]
 
@@ -72,6 +72,7 @@ Arrays with superfluous ',' after last element
 
 (document
   (array
+    (number)
     (number)
     (number)
     ))

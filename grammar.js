@@ -130,7 +130,7 @@ module.exports = grammar({
 });
 
 function commaSep1(rule) {
-  return seq(rule, repeat(seq(",", rule)))
+  return seq(rule, repeat(seq(choice(",", "\n"), rule)))
 }
 
 function commaSep(rule) {
