@@ -20,6 +20,7 @@ module.exports = grammar({
         $.imap,
         $.array,
         $.number,
+        $.datetime,
         $.string,
         $.true,
         $.false,
@@ -111,6 +112,9 @@ module.exports = grammar({
         octal_literal
       ))
     },
+
+    // datetime: $ => /d"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}"/,
+    datetime: $ => /d"(\d{4})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T(0[0-9]|1[0-9]|2[0123]):([012345][0-9]):([012345][0-9])(\.\d{3})?(Z|[+-](0[1-9]|1[012])([012345][0-9])?)?"/,
 
     true: $ => "true",
 
