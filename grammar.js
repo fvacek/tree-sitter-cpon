@@ -22,6 +22,8 @@ module.exports = grammar({
         $.number,
         $.datetime,
         $.string,
+        $.hexblob,
+        $.escblob,
         $.true,
         $.false,
         $.null
@@ -74,7 +76,7 @@ module.exports = grammar({
 
     escape_sequence: $ => token.immediate(seq(
       '\\',
-      /(\"|\\|\/|b|f|n|r|t|u)/
+      /(\"|\\|\/|b|f|n|r|t)/
     )),
 
     number: $ => {
@@ -87,9 +89,9 @@ module.exports = grammar({
       const signed_integer = seq(optional(choice('-', '+')), decimal_digits)
       const exponent_part = seq(choice('e', 'E'), signed_integer)
 
-      const binary_literal = seq(choice('0b', '0B'), /[0-1]+/)
+      // const binary_literal = seq(choice('0b', '0B'), /[0-1]+/)
 
-      const octal_literal = seq(choice('0o', '0O'), /[0-7]+/)
+      // const octal_literal = seq(choice('0o', '0O'), /[0-7]+/)
 
       const decimal_integer_literal = seq(
         optional(choice('-', '+')),
@@ -107,9 +109,9 @@ module.exports = grammar({
 
       return token(choice(
         hex_literal,
-        decimal_literal,
-        binary_literal,
-        octal_literal
+        decimal_literal
+        // binary_literal,
+        // octal_literal
       ))
     },
 
@@ -117,6 +119,9 @@ module.exports = grammar({
     datetime: $ => /d"(\d{4})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T(0[0-9]|1[0-9]|2[0123]):([012345][0-9]):([012345][0-9])(\.\d{3})?(Z|[+-](0[1-9]|1[012])([012345][0-9])?)?"/,
 
     true: $ => "true",
+    
+    hexblob: $ => /x"([0-9a-fA-F]{2})*"/,
+    escblob: $ => /b"(\\[0-9a-fA-F]{2}|[ -~]|\\\\)*"/,
 
     false: $ => "false",
 
@@ -134,9 +139,9 @@ module.exports = grammar({
 });
 
 function commaSep1(rule) {
-  return seq(rule, repeat(seq(repeat1(choice(",", "\n")), rule)))
+  return seq(rule, repeat(seq(repeat1(choice(",", "\n", " ", "\t")), rule)))
 }
 
 function commaSep(rule) {
-  return optional(seq(commaSep1(rule),repeat(choice(",", "\n"))))
+  return optional(seq(commaSep1(rule),repeat(choice(",", "\n", " ", "\t"))))
 }
