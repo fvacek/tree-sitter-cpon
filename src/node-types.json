@@ -12,7 +12,19 @@
           "named": true
         },
         {
+          "type": "datetime",
+          "named": true
+        },
+        {
+          "type": "escblob",
+          "named": true
+        },
+        {
           "type": "false",
+          "named": true
+        },
+        {
+          "type": "hexblob",
           "named": true
         },
         {
@@ -59,7 +71,19 @@
           "named": true
         },
         {
+          "type": "datetime",
+          "named": true
+        },
+        {
+          "type": "escblob",
+          "named": true
+        },
+        {
           "type": "false",
+          "named": true
+        },
+        {
+          "type": "hexblob",
           "named": true
         },
         {
@@ -131,7 +155,19 @@
             "named": true
           },
           {
+            "type": "datetime",
+            "named": true
+          },
+          {
+            "type": "escblob",
+            "named": true
+          },
+          {
             "type": "false",
+            "named": true
+          },
+          {
+            "type": "hexblob",
             "named": true
           },
           {
@@ -223,7 +259,19 @@
             "named": true
           },
           {
+            "type": "datetime",
+            "named": true
+          },
+          {
+            "type": "escblob",
+            "named": true
+          },
+          {
             "type": "false",
+            "named": true
+          },
+          {
+            "type": "hexblob",
             "named": true
           },
           {
@@ -281,7 +329,19 @@
             "named": true
           },
           {
+            "type": "datetime",
+            "named": true
+          },
+          {
+            "type": "escblob",
+            "named": true
+          },
+          {
             "type": "false",
+            "named": true
+          },
+          {
+            "type": "hexblob",
             "named": true
           },
           {
@@ -347,7 +407,15 @@
     }
   },
   {
+    "type": "\t",
+    "named": false
+  },
+  {
     "type": "\n",
+    "named": false
+  },
+  {
+    "type": " ",
     "named": false
   },
   {
@@ -383,11 +451,23 @@
     "named": true
   },
   {
+    "type": "datetime",
+    "named": true
+  },
+  {
     "type": "escape_sequence",
     "named": true
   },
   {
+    "type": "escblob",
+    "named": true
+  },
+  {
     "type": "false",
+    "named": true
+  },
+  {
+    "type": "hexblob",
     "named": true
   },
   {

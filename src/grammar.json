@@ -41,7 +41,19 @@
             },
             {
               "type": "SYMBOL",
+              "name": "datetime"
+            },
+            {
+              "type": "SYMBOL",
               "name": "string"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "hexblob"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "escblob"
             },
             {
               "type": "SYMBOL",
@@ -96,6 +108,14 @@
                                 {
                                   "type": "STRING",
                                   "value": "\n"
+                                },
+                                {
+                                  "type": "STRING",
+                                  "value": " "
+                                },
+                                {
+                                  "type": "STRING",
+                                  "value": "\t"
                                 }
                               ]
                             }
@@ -121,6 +141,14 @@
                       {
                         "type": "STRING",
                         "value": "\n"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": " "
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "\t"
                       }
                     ]
                   }
@@ -209,6 +237,14 @@
                                 {
                                   "type": "STRING",
                                   "value": "\n"
+                                },
+                                {
+                                  "type": "STRING",
+                                  "value": " "
+                                },
+                                {
+                                  "type": "STRING",
+                                  "value": "\t"
                                 }
                               ]
                             }
@@ -234,6 +270,14 @@
                       {
                         "type": "STRING",
                         "value": "\n"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": " "
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "\t"
                       }
                     ]
                   }
@@ -313,6 +357,14 @@
                                 {
                                   "type": "STRING",
                                   "value": "\n"
+                                },
+                                {
+                                  "type": "STRING",
+                                  "value": " "
+                                },
+                                {
+                                  "type": "STRING",
+                                  "value": "\t"
                                 }
                               ]
                             }
@@ -338,6 +390,14 @@
                       {
                         "type": "STRING",
                         "value": "\n"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": " "
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "\t"
                       }
                     ]
                   }
@@ -417,6 +477,14 @@
                                 {
                                   "type": "STRING",
                                   "value": "\n"
+                                },
+                                {
+                                  "type": "STRING",
+                                  "value": " "
+                                },
+                                {
+                                  "type": "STRING",
+                                  "value": "\t"
                                 }
                               ]
                             }
@@ -442,6 +510,14 @@
                       {
                         "type": "STRING",
                         "value": "\n"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": " "
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "\t"
                       }
                     ]
                   }
@@ -524,7 +600,7 @@
           },
           {
             "type": "PATTERN",
-            "value": "(\\\"|\\\\|\\/|b|f|n|r|t|u)"
+            "value": "(\\\"|\\\\|\\/|b|f|n|r|t)"
           }
         ]
       }
@@ -879,57 +955,25 @@
                 ]
               }
             ]
-          },
-          {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": "0b"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "0B"
-                  }
-                ]
-              },
-              {
-                "type": "PATTERN",
-                "value": "[0-1]+"
-              }
-            ]
-          },
-          {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": "0o"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "0O"
-                  }
-                ]
-              },
-              {
-                "type": "PATTERN",
-                "value": "[0-7]+"
-              }
-            ]
           }
         ]
       }
     },
+    "datetime": {
+      "type": "PATTERN",
+      "value": "d\"(\\d{4})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T(0[0-9]|1[0-9]|2[0123]):([012345][0-9]):([012345][0-9])(\\.\\d{3})?(Z|[+-](0[1-9]|1[012])([012345][0-9])?)?\""
+    },
     "true": {
       "type": "STRING",
       "value": "true"
+    },
+    "hexblob": {
+      "type": "PATTERN",
+      "value": "x\"([0-9a-fA-F]{2})*\""
+    },
+    "escblob": {
+      "type": "PATTERN",
+      "value": "b\"(\\\\[0-9a-fA-F]{2}|[ -~]|\\\\\\\\)*\""
     },
     "false": {
       "type": "STRING",
