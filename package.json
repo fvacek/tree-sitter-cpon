@@ -32,10 +32,10 @@
         "cpon"
       ],
       "highlights": [
-        "queries/highlights.scm"
+        "queries/vim/highlights.scm"
       ],
       "indents": [
-        "queries/indents.scm"
+        "queries/vim/indents.scm"
       ]
     }
   ]
