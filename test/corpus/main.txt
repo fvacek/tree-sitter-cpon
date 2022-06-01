@@ -69,6 +69,10 @@ Array
   10.1  10,
 
   -10,
+  123u
+  0xabc,
+  0x23efu,
+  0X123dc
   null
 
   true,
@@ -84,6 +88,10 @@ Array
 
 (document
   (array
+    (number)
+    (number)
+    (number)
+    (number)
     (number)
     (number)
     (number)
