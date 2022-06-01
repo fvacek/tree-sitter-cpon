@@ -82,9 +82,10 @@ module.exports = grammar({
     number: $ => {
       const hex_literal = seq(
         choice('0x', '0X'),
-        /[\da-fA-F]+/
+        /[\da-fA-F]+u?/
       )
-
+      const int_literal = /\d+u?/
+      
       const decimal_digits = /\d+/
       const signed_integer = seq(optional(choice('-', '+')), decimal_digits)
       const exponent_part = seq(choice('e', 'E'), signed_integer)
@@ -109,6 +110,7 @@ module.exports = grammar({
 
       return token(choice(
         hex_literal,
+        int_literal,
         decimal_literal
         // binary_literal,
         // octal_literal
